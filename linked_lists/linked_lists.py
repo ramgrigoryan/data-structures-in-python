@@ -38,6 +38,28 @@ class Linked_List():
             if new_node["next"] == None:
                 self.tail = new_node
             self.length+=1
+    
+    def remove(self,index):
+        i=0
+        prev_node = None
+        current_node = self.head
+        while i != index:
+            prev_node = current_node
+            current_node = current_node["next"]
+            i +=1
+        if current_node == self.head:
+            self.head = current_node["next"]
+            self.length -=1
+            return
+        if current_node== self.tail:
+            self.tail = prev_node
+            prev_node["next"] = None
+            self.length -=1
+            return
+        prev_node["next"] = current_node["next"]
+        self.length -=1
+        
+        
         
     
     def traverse(self):
@@ -67,5 +89,8 @@ my_linked_list.instert(2,2)
 my_linked_list.instert(6,19)
 my_linked_list.instert(6,29)
 
+my_linked_list.remove(0)
+
+my_linked_list.remove(2)
 
 print(my_linked_list.head)
