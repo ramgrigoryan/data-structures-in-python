@@ -58,21 +58,24 @@ class Linked_List():
             return
         prev_node["next"] = current_node["next"]
         self.length -=1
-        
-        
-        
+
+    def reverse(self):
+        reversed_linked_list = Linked_List(self.head["value"])
+        current_node = self.head["next"]
+        while current_node!= None:
+            reversed_linked_list.prepend(current_node["value"])
+            current_node = current_node["next"]
+        return reversed_linked_list.traverse()
     
     def traverse(self):
         all_nodes = []
         current_node = self.head
         if self.head == self.tail:
-            all_nodes.append(current_node)
+            all_nodes.append(current_node["value"])
             return all_nodes
-        while current_node["next"] != None:
-            all_nodes.append((current_node))
+        while current_node != None:
+            all_nodes.append(current_node["value"])
             current_node = current_node["next"]
-        all_nodes.append(current_node)
-        
         return all_nodes
 
 my_linked_list = Linked_List(10)
@@ -93,4 +96,6 @@ my_linked_list.remove(0)
 
 my_linked_list.remove(2)
 
-print(my_linked_list.head)
+print(my_linked_list.traverse())
+
+print(my_linked_list.reverse())
