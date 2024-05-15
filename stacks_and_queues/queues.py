@@ -28,7 +28,7 @@ class Queue():
             self.first = self.first.next
             self.length -=1
 
-    def pick(self):
+    def peek(self):
         return self.first.value
 
     def isEmpty(self):
@@ -56,7 +56,7 @@ print(my_queue.traverse())
 
 my_queue.dequeue()
 
-print(my_queue.pick())
+print(my_queue.peek())
 
 my_queue.dequeue()
 print(my_queue.traverse())
