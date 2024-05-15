@@ -27,6 +27,7 @@ class Queue():
         if self.first:
             self.first = self.first.next
             self.length -=1
+        self.last = None
 
     def peek(self):
         return self.first.value
